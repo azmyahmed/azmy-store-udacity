@@ -1,0 +1,52 @@
+{
+	"productCard": [
+		{
+			"serial": 1,
+			"productName": "Bike",
+			"price": 2000,
+			"numberOfItem": 1,
+			"description": "GooD Bike yellow Color",
+			"imgSrc": "../../../assets/productImages/bike.png"
+		},
+		{
+			"serial": 2,
+			"productName": "Mercides Car",
+			"price": 2000000,
+			"numberOfItem": 1,
+			"description": "GooD Car Black Color",
+			"imgSrc": "../../../assets/productImages/car.png"
+		},
+		{
+			"serial": 3,
+			"productName": "SamSung",
+			"price": 10000.5,
+			"numberOfItem": 1,
+			"description": "GooD Tv Black Color",
+			"imgSrc": "../../../assets/productImages/tv.png"
+		},
+		{
+			"serial": 4,
+			"productName": "Zara Dress",
+			"price": 200.5,
+			"numberOfItem": 1,
+			"description": "GooD Dress Good Color",
+			"imgSrc": "../../../assets/productImages/dress.png"
+		},
+		{
+			"serial": 5,
+			"productName": "Iphone 13 Pro",
+			"price": 1200.5,
+			"numberOfItem": 1,
+			"description": " Black Color",
+			"imgSrc": "../../../assets/productImages/mobile.png"
+		},
+		{
+			"serial": 6,
+			"productName": "Iphone Cover",
+			"price": 100,
+			"numberOfItem": 1,
+			"description": "GooD  Cover",
+			"imgSrc": "../../../assets/productImages/cover.png"
+		}
+	]
+}

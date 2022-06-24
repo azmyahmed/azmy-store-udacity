@@ -1,0 +1,70 @@
+<div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="row">
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="card-img-actions col-9">
+
+                            <img [src]=" productDetail.imgSrc" class="card-img img-fluid" alt="">
+                        </div>
+                        <div class="col-3">
+                            <div class="card-body bg-light text-center">
+                                <div class="mb-2">
+                                    <h6 class="font-weight-semibold mb-2">
+                                        <a style="color: rgb(13, 175, 13);" href="#" class="text-default mb-2"
+                                            data-abc="true">
+                                            {{ productDetail.productName}}</a>
+                                    </h6>
+
+                                </div>
+
+                                <h6 style="color: red;" class="mb-0 font-weight-semibold">${{
+                                    productDetail.price}} </h6>
+                                <div class="mb-2">
+                                    <h6 class="font-weight-semibold mb-2">
+                                        <a style="color: blue" href="#" class="text-default mb-2" data-abc="true">
+                                            {{ productDetail.description}}</a>
+                                    </h6>
+
+                                </div>
+                                <div style="margin-top: 8px">
+                                    <select style="text-align: center;" aria-label="Default select example"
+                                        [(ngModel)]=" productDetail.numberOfItem">
+                                        <option [value]="1">1</option>
+                                        <option [value]="2">2</option>
+                                        <option [value]="3">3</option>
+                                        <option [value]="4">4</option>
+                                        <option [value]="4">5</option>
+                                    </select>
+                                </div>
+                                <div class="col-12" style="margin-top: 15px;">
+                                    <button (click)="addToCart( productDetail)" class="btn btn-primary">Add to cart
+                                    </button>
+                                </div>
+                                <div>
+                                    <svg [routerLink]="['/']" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+                                    </svg>
+                                    <a [routerLink]="['/']">Back To Product List </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

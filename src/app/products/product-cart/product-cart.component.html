@@ -1,0 +1,144 @@
+<!-- Azmy -->
+<div *ngIf="showCongratulation==0" class="container d-flex justify-content-center mt-50 mb-50">
+    <div style="color: red;text-align:center" class="card" *ngIf="productInCartList.length==0">
+        No Products Yet Add To Cart First
+        <div>
+            <svg [routerLink]="['/']" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+            </svg>
+            <a [routerLink]="['/']">Back To Product List </a>
+        </div>
+    </div>
+    <div class="card" *ngIf="productInCartList.length>0">
+        <div class="row">
+            <div class="col-6">
+                <div class="row" style="margin: 10px;" *ngFor="let product of productInCartList">
+                    <div class="card-img-actions col-4">
+
+                        <img [src]="  product.imgSrc" class="card-img img-fluid" alt="">
+                    </div>
+                    <div class="col-8">
+                        <div class=" bg-light text-center">
+                            <div class="mb-2">
+                                <span (click)="removeProductFromCart(product)" class='bi bi-trash'
+                                    style='color: red;cursor:pointer'></span>
+
+                                <h6 class="font-weight-semibold mb-2">
+                                    <a style="color: rgb(13, 175, 13);" href="#" class="text-default mb-2"
+                                        data-abc="true">
+                                        {{ product.productName}}</a>
+                                </h6>
+
+                            </div>
+
+                            <h6 style="color: red;" class="mb-0 font-weight-semibold">${{
+                                product.price}} </h6>
+
+                            <div style="margin-top: 8px">
+                                <!-- <select [ngModel]="product.numberOfItem" (ngModelChange)="sumProductsPrice($event)"
+                                    style="text-align: center;" aria-label="Default select example">
+                                    <option [value]="1">1</option>
+                                    <option [value]="2">2</option>
+                                    <option [value]="3">3</option>
+                                    <option [value]="4">4</option>
+                                    <option [value]="4">5</option>
+                                </select> -->
+
+
+                                <input type="number" style="text-align: center;"
+                                    (ngModelChange)="sumProductsPrice($event)" [(ngModel)]="product.numberOfItem" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- form -->
+
+
+            </div>
+
+            <div class="col-6">
+                <form class="row g-3 needs-validation" [formGroup]="customerForm"
+                    (ngSubmit)="confirmOrder(customerForm.value)">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Full Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="name"
+                            placeholder="Azmy Ahmed" formControlName="customerName" required>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Cairo , Tahrir St"
+                            formControlName="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Credit Card Number</label>
+                        <input type="number" class="form-control" id="card" formControlName="cardNumber"
+                            placeholder="(16 digit numbers)" required>
+                        <small id="card" class="form-text text-muted">We'll never share your Information
+                            with
+                            anyone else.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- <input type="submit" value="Submit"> -->
+
+                </form>
+
+            </div>
+
+        </div>
+        <div>
+            <strong>Total : $ {{totalPrice}}</strong>
+        </div>
+        <div>
+            <svg [routerLink]="['/']" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+            </svg>
+            <a [routerLink]="['/']">Back To Product List </a>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+<!-- congratulation -->
+<div class="container card" style="text-align:center;margin-top: 20px;" *ngIf="showCongratulation==1">
+    <div>
+        <strong style="color: skyblue; font-size:30px">Sucess !</strong> 🎉
+
+    </div>
+    <div style="margin-bottom: 30px">
+        Thank You , {{customerName}} !
+    </div>
+    <div style="margin-bottom: 30px">
+        Your {{totalPrice}} Order is Confirmed !
+    </div>
+    <div style="margin-bottom: 30px">
+        <strong>Please Allow (1 - 3) businessis day(s) for shipping </strong>
+    </div>
+    <div style="margin-bottom: 30px">
+        <button [routerLink]="['/']" class="btn btn-primary">Back To Product List
+        </button>
+    </div>
+
+    <!-- <div>
+        <svg [routerLink]="['/']" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+        </svg>
+
+        <a [routerLink]="['/product-cart']" (click)="editProductCart()">Back To Product Cart </a>
+
+    </div> -->
+
+</div>

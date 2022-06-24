@@ -1,0 +1,13 @@
+img {
+    height: 160px;
+    width: 180px;
+    cursor: pointer;
+}
+
+.card {
+    width: 830px;
+}
+
+.card-body {
+    width: 450px;
+}
